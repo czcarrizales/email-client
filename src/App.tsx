@@ -5,10 +5,10 @@ import Navbar from './Navbar'
 function App() {
 
   return (
-    <>
-    <Navbar />
+    <div className='container'>
+      <Navbar />
       <Message />
-    </>
+    </div>
   )
 }
 
