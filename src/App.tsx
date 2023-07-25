@@ -4,10 +4,26 @@ import Navbar from './Navbar'
 
 function App() {
 
+  const getMessages = () => {
+    return (
+      <>
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      </>
+    )
+  }
+
   return (
     <div className='container'>
       <Navbar />
-      <Message />
+      {getMessages()}
     </div>
   )
 }
