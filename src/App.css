@@ -1,0 +1,16 @@
+#btn-fixed {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    border: none;
+    background-color: #F74C41;
+    color: #E6E6E6;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
