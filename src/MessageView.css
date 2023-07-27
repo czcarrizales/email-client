@@ -1,0 +1,28 @@
+.back-button {
+    background-color: #44404F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: .4rem 1rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.delete-button {
+    background-color: #570000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: .4rem 1rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.col-12 {
+    border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+#message-view-to, #message-view-from, #message-view-subject, #message-view-text {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
