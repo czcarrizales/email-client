@@ -14,3 +14,7 @@
     align-items: center;
     text-decoration: none;
   }
+
+  #btn-fixed:hover {
+    transform: scale(1.1);
+  }
