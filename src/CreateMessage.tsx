@@ -13,7 +13,7 @@ const CreateMessage = () => {
             <input className='form-control create-message-input' type="text" placeholder='Subject Title' />
             </div>
             <div id='create-message-text'>
-            <textarea className='form-control create-message-input' name="" id="" cols="30" rows="10"></textarea>
+            <textarea className='form-control create-message-input' name="" id="" cols={30} rows={10}></textarea>
             </div>
             
             <div id='create-message-submit'>
