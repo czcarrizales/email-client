@@ -1,25 +1,85 @@
-import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import {redirect, useNavigate, useParams} from 'react-router-dom'
 import './MessageView.css'
+import { MessageContext } from './MessageContext'
+import { toast } from 'react-toastify'
 const MessageView = () => {
   const navigate = useNavigate()
+  const {messages, setMessages, notification, setNotification, handleNotification} = useContext(MessageContext)
+  const {id} = useParams()
+  const [user, setUser] = useState(undefined)
+  console.log(user)
+  useEffect(() => {
+    console.log('checking user')
+    const checkUser = async () => {
+      const foundUser = await messages.find((message) => message.login.uuid === id)
+      if (foundUser == undefined) {
+        console.log('user is undefined')
+        navigate('/')
+      } else {
+        console.log('user exists')
+        setUser(foundUser)
+      }
+    }
+    checkUser()
+  
+    
+  }, [])
+  
   const handleClick = () => {
     navigate('/')
   }
   const handleDelete = () => {
-    console.log('deleted')
+    if (!user?.trash) {
+      const updatedMessages = messages.map((message) => {
+        return message === user ? {...message, trash: true} : message
+      })
+      setMessages(updatedMessages)
+      toast.error('Sent to Trash', {
+        position: "bottom-left",
+        autoClose: 3000,
+        theme: "dark",
+      })
+    } else {
+      const updatedMessages = messages.map((message) => {
+        return message === user ? {...message, trash: false} : message
+      })
+      setMessages(updatedMessages)
+      toast.error('Sent to Inbox', {
+        position: "bottom-left",
+        autoClose: 3000,
+        theme: "dark",
+      })
+    }
+    navigate('/')
+    
+  }
+  const handleSpam = () => {
+    if (!user.spam) {
+      const updatedMessages = messages.map((message) => {
+        return message === user ? {...message, spam: true} : message
+      })
+      setMessages(updatedMessages)
+      navigate('/')
+    }
+    toast.warn('Sent to Spam', {
+      position: "bottom-left",
+      autoClose: 3000,
+      theme: "dark",
+    })
   }
   return (
     <div id='message-view-container' className="row">
       <div className="col-12 d-flex justify-content-between">
         <button className='back-button' onClick={handleClick}>Back</button>
-        <button className='delete-button' onClick={handleDelete}>Delete</button>
+        <button className='spam-button' onClick={handleSpam}>Spam</button>
+        <button className='delete-button' onClick={handleDelete}>{user?.trash ? 'Undo Delete' : 'Delete'}</button>
       </div>
       <div className="col-12">
-        <p id='message-view-to'>To: Person McPerson</p>
+        <p id='message-view-to'>To: You, the User!</p>
       </div>
       <div className="col-12">
-        <p id='message-view-from'>From: Mr. Pepper</p>
+        <p id='message-view-from'>From: {user?.name.first} {user?.name.last}</p>
       </div>
       <div className="col-12">
         <p id='message-view-subject'>Subject: I Want You To Drink My Dr. Pepper</p>
