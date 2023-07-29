@@ -1,12 +1,13 @@
 #profile-details-container {
     display: flex;
     flex-direction: column;
+    border: 1px solid red;
 }
 
 #profile-picture {
     border: 1px solid;
-    height: 177px;
     width: 100%;
+    max-width: 350px;
     background-color: rgb(91, 94, 90);
     margin-top: 40px;
 }
