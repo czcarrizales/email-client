@@ -18,8 +18,18 @@
     margin-bottom: 8px;
 }
 
+.spam-button {
+    background-color: #0a3001;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: .4rem 1rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 .col-12 {
-    border-bottom: 1px solid rgb(32, 32, 32);
+    
 }
 
 #message-view-to, #message-view-from, #message-view-subject, #message-view-text {
