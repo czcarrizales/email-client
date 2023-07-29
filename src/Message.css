@@ -11,7 +11,7 @@
 
 #message-container:hover {
     cursor: pointer;
-    background-color: rgb(66, 66, 66)
+    background-color: hsl(253, 13%, 17%)
 }
 
 #message-name {}
@@ -22,9 +22,13 @@
 
 .profile-picture {
     margin: 0;
-    border: 1px solid;
-    min-height: 50px;
-    min-width: 50px;
+    height: 60px;
+    width: 60px;
     background-color: rgb(91, 94, 90);
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+#demo {
+    width: 50%;
+    border: 2px solid blue;
 }
