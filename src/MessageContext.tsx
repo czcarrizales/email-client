@@ -1,11 +1,31 @@
 // MessageContext.js
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
 const MessageContext = createContext([]);
 
-const MessageProvider = ({ children }) => {
-  const [messages, setMessages] = useState([]);
+interface MessageProviderProps {
+  children: ReactNode;
+}
+
+interface MessageData {
+  [key: string]: any;
+}
+
+// interface MessageContextProps {
+//   messages: MessageData[];
+//   setMessages: Dispatch<SetStateAction<MessageData[]>>;
+//   notification: boolean;
+//   setNotification: Dispatch<SetStateAction<boolean>>;
+//   handleNotification: () => void;
+//   loadingMessages: boolean;
+//   setLoadingMessages: Dispatch<SetStateAction<boolean>>;
+//   sentMessages: MessageData[];
+//   setSentMessages: Dispatch<SetStateAction<MessageData[]>>;
+// }
+
+const MessageProvider = ({ children }: MessageProviderProps) => {
+  const [messages, setMessages] = useState<MessageData[]>([]);
   const [sentMessages, setSentMessages] = useState([])
   const [notification, setNotification] = useState(false)
   const [loadingMessages, setLoadingMessages] = useState(true)

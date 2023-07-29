@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import './Navbar.css'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,11 +15,11 @@ const Navbar = () => {
     const handleSearchClick = () => {
         setInputVisible(!isInputVisible)
     }
-    const handleChange = (event) => {
+    const handleChange = (event: any) => {
         setInputValue(event.target.value)
     }
     const location = useLocation()
-    const getLinkText = (pathname) => {
+    const getLinkText = (pathname: any) => {
         switch (pathname) {
           case '/':
             return 'Inbox';

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './Profile.css'
 import { MessageContext } from './MessageContext'
@@ -6,7 +6,7 @@ import { MessageContext } from './MessageContext'
 const Profile = () => {
     const {id} = useParams()
     const {messages} = useContext(MessageContext)
-    const user = messages.find((message) => message.login.uuid === id)
+    const user = messages.find((message: any) => message.login.uuid === id)
     console.log(user)
     const navigate = useNavigate()
     const handleClick = () => {

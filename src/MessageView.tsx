@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {redirect, useNavigate, useParams} from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams} from 'react-router-dom'
 import './MessageView.css'
 import { MessageContext } from './MessageContext'
 import { toast } from 'react-toastify'
 const MessageView = () => {
   const navigate = useNavigate()
-  const {messages, setMessages, notification, setNotification, handleNotification} = useContext(MessageContext)
+  const {messages, setMessages} = useContext(MessageContext)
   const {id} = useParams()
   const [user, setUser] = useState(undefined)
   console.log(user)
   useEffect(() => {
     console.log('checking user')
     const checkUser = async () => {
-      const foundUser = await messages.find((message) => message.login.uuid === id)
+      const foundUser = await messages.find((message: any) => message.login.uuid === id)
       if (foundUser == undefined) {
         console.log('user is undefined')
         navigate('/')
@@ -31,7 +31,7 @@ const MessageView = () => {
   }
   const handleDelete = () => {
     if (!user?.trash) {
-      const updatedMessages = messages.map((message) => {
+      const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, trash: true} : message
       })
       setMessages(updatedMessages)
@@ -56,7 +56,7 @@ const MessageView = () => {
   }
   const handleSpam = () => {
     if (!user.spam) {
-      const updatedMessages = messages.map((message) => {
+      const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, spam: true} : message
       })
       setMessages(updatedMessages)

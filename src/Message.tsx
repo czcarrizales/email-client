@@ -1,15 +1,13 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from 'axios'
 import 'react-contexify/ReactContexify.css';
 import {
   Menu,
   Item,
   useContextMenu,
-  RightSlot,
   Separator,
 } from 'react-contexify';
 import './Message.css'
@@ -20,7 +18,7 @@ import { toast } from 'react-toastify'
 const Message = (props) => {
   const { show } = useContextMenu({ id: 'demo' });
   const {messages, setMessages} = useContext(MessageContext)
-  const user = messages.find((message) => message.login.uuid === props.id)
+  const user = messages.find((message: any) => message.login.uuid === props.id)
   const navigate = useNavigate()
   const [isFavorited, setIsFavorited] = useState(user.favorited)
   const viewMessage = () => {
@@ -31,7 +29,7 @@ const Message = (props) => {
   }
   const handleFavorite = () => {
     if (user.favorited) {
-      const updatedMessages = messages.map((message) => {
+      const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, favorited: false} : message
       })
       setMessages(updatedMessages)
@@ -42,7 +40,7 @@ const Message = (props) => {
         theme: "dark",
       })
     } else {
-      const updatedMessages = messages.map((message) => {
+      const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, favorited: true} : message
       })
       setMessages(updatedMessages)

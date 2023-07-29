@@ -1,20 +1,11 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Sidebar.css'
 
 const Sidebar = () => {
     const [activeLink, setActiveLink] = useState('/');
 
-    const location = useLocation();
-  // Function to check if the current pathname is the '/create-message' route
-  const isMessageViewRoute = () => {
-    return /^\/message-view\/[a-f0-9-]+$/.test(location.pathname);
-  };
-  const isCreateMessageRoute = () => {
-    return location.pathname.startsWith('/create-message');
-  }
-
-  const handleLinkClick = (path) => {
+  const handleLinkClick = (path: any) => {
     setActiveLink(path);
   };
     return (

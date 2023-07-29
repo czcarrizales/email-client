@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { InputContext } from './InputContext'
 import Message from './Message'
 import { MessageContext } from './MessageContext'
 
 const Spam = () => {
     const {messages} = useContext(MessageContext)
-    const spamMessages = messages.filter((message) => message.spam)
+    const spamMessages = messages.filter((message: any) => message.spam)
     const {inputValue} = useContext(InputContext)
     const [filteredMessages, setFilteredMessages] = useState([])
 
     useEffect(() => {
-        const filtered = spamMessages.filter((message) => {
+        const filtered = spamMessages.filter((message: any) => {
             const first = message.name.first
             return first.toLowerCase().includes(inputValue.toLowerCase())
         })
