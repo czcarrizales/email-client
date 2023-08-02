@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import './CreateMessage.css'
 import { MessageContext } from './MessageContext'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -8,7 +8,7 @@ const CreateMessage = () => {
     const navigate = useNavigate()
     const {messages, sentMessages, setSentMessages} = useContext(MessageContext)
     const {id} = useParams()
-    const user = messages.find((message) => message.login.uuid === id)
+    const user = messages.find((message: any) => message.login.uuid === id)
     const inputValue = user ? user.email : null
     const onSubmit = (e) => {
         e.preventDefault()

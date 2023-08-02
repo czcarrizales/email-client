@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import { InputContext } from './InputContext'
 import Message from './Message'
 import { MessageContext } from './MessageContext'
-import React from 'react'
 
 const Trash = () => {
     const {messages} = useContext(MessageContext)

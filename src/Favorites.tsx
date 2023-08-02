@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { InputContext } from './InputContext'
 import Message from './Message'
 import { MessageContext } from './MessageContext'
 
 const Favorites = () => {
     const {messages} = useContext(MessageContext)
-    const favoritedMessages = messages.filter((message) => message.favorited)
+    const favoritedMessages = messages.filter((message: any) => message.favorited)
     const {inputValue} = useContext(InputContext)
     const [filteredMessages, setFilteredMessages] = useState([])
 
     useEffect(() => {
-        const filtered = favoritedMessages.filter((message) => {
+        const filtered = favoritedMessages.filter((message: any) => {
             const first = message.name.first
             return first.toLowerCase().includes(inputValue.toLowerCase())
         })

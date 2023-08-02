@@ -15,7 +15,7 @@ import { MessageContext } from './MessageContext'
 import Skeleton from 'react-loading-skeleton'
 import { toast } from 'react-toastify'
 
-const Message = (props) => {
+const Message = (props: any) => {
   const { show } = useContextMenu({ id: 'demo' });
   const {messages, setMessages} = useContext(MessageContext)
   const user = messages.find((message: any) => message.login.uuid === props.id)

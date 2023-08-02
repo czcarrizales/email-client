@@ -1,6 +1,5 @@
 import Skeleton from 'react-loading-skeleton'
 import './CardSkeleton.css'
-import React from 'react'
 
 const CardSkeleton = ({ cards }) => {
     return (
