@@ -2,15 +2,17 @@
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
-const MessageContext = createContext([]);
+interface MessageData {
+  [key: string]: any;
+}
+
+const MessageContext = createContext<MessageData>([]);
 
 interface MessageProviderProps {
   children: ReactNode;
 }
 
-interface MessageData {
-  [key: string]: any;
-}
+
 
 // interface MessageContextProps {
 //   messages: MessageData[];

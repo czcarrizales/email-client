@@ -6,7 +6,7 @@ import CardSkeleton from './CardSkeleton'
 
 const Inbox = () => {
 
-    const {messages, notification, setNotification, loadingMessages, setLoadingMessages} = useContext(MessageContext)
+    const {messages, notification, setNotification, loadingMessages} = useContext(MessageContext)
     const {inputValue} = useContext(InputContext)
     const [filteredMessages, setFilteredMessages] = useState([])
 
@@ -31,7 +31,7 @@ const Inbox = () => {
 
 
       const displayMessages = () => {
-        return filteredMessages.map((message) => {
+        return (filteredMessages as any[]).map((message) => {
             if(message.trash || message.spam) {
                 
             } else {

@@ -5,12 +5,12 @@ import { MessageContext } from './MessageContext'
 
 const Trash = () => {
     const {messages} = useContext(MessageContext)
-    const trashMessages = messages.filter((message) => message.trash)
+    const trashMessages = messages.filter((message: any) => message.trash)
     const {inputValue} = useContext(InputContext)
     const [filteredMessages, setFilteredMessages] = useState([])
 
     useEffect(() => {
-        const filtered = trashMessages.filter((message) => {
+        const filtered = trashMessages.filter((message: any) => {
             const first = message.name.first
             return first.toLowerCase().includes(inputValue.toLowerCase())
         })
@@ -20,7 +20,7 @@ const Trash = () => {
 
 
       const displayMessages = () => {
-        return filteredMessages.map((message) => (<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />))
+        return (filteredMessages as any[]).map((message) => (<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />))
       }
   return (
     <div>

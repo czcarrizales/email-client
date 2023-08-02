@@ -1,7 +1,12 @@
 import Skeleton from 'react-loading-skeleton'
 import './CardSkeleton.css'
 
-const CardSkeleton = ({ cards }) => {
+interface Cards {
+    cards: any;
+}
+
+const CardSkeleton = ({ cards }: Cards) => {
+    
     return (
         Array(cards).fill(0).map(_item => (
             <div className='card-skeleton row d-flex align-items-center justify-content-center'>

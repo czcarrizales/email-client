@@ -10,7 +10,7 @@ const CreateMessage = () => {
     const {id} = useParams()
     const user = messages.find((message: any) => message.login.uuid === id)
     const inputValue = user ? user.email : null
-    const onSubmit = (e) => {
+    const onSubmit = (e: any) => {
         e.preventDefault()
         toast.success('Email sent!', {
             position: "bottom-left",

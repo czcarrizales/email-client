@@ -7,7 +7,7 @@ const MessageView = () => {
   const navigate = useNavigate()
   const {messages, setMessages} = useContext(MessageContext)
   const {id} = useParams()
-  const [user, setUser] = useState(undefined)
+  const [user, setUser] = useState<any>(null)
   console.log(user)
   useEffect(() => {
     console.log('checking user')
@@ -41,7 +41,7 @@ const MessageView = () => {
         theme: "dark",
       })
     } else {
-      const updatedMessages = messages.map((message) => {
+      const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, trash: false} : message
       })
       setMessages(updatedMessages)
@@ -55,7 +55,7 @@ const MessageView = () => {
     
   }
   const handleSpam = () => {
-    if (!user.spam) {
+    if (!user?.spam) {
       const updatedMessages = messages.map((message: any) => {
         return message === user ? {...message, spam: true} : message
       })

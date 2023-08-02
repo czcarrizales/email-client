@@ -2,7 +2,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faReply } from '@fortawesome/free-solid-svg-icons';
 
-const CustomButton = ({id}) => {
+interface Id {
+  id: any;
+}
+
+const CustomButton = ({id}: Id) => {
   const location = useLocation();
   // Function to check if the current pathname is the '/create-message' route
   const isMessageViewRoute = () => {

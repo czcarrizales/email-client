@@ -1,9 +1,21 @@
 // InputContext.js
-import { createContext, useState } from 'react';
+import { Dispatch, ReactNode, SetStateAction, createContext, useState } from 'react';
 
-const InputContext = createContext('');
+interface InputContextType {
+  inputValue: string;
+  setInputValue: Dispatch<SetStateAction<string>>;
+}
 
-const InputProvider = ({ children }) => {
+const InputContext = createContext<InputContextType>({
+  inputValue: '',
+  setInputValue: () => {}
+});
+
+interface InputProviderProps {
+  children: ReactNode;
+}
+
+const InputProvider = ({ children }: InputProviderProps) => {
   const [inputValue, setInputValue] = useState('');
 
   return (

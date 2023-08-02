@@ -20,7 +20,7 @@ const Favorites = () => {
 
 
       const displayMessages = () => {
-        return filteredMessages.map((message) => (<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />))
+        return (filteredMessages as any[]).map((message) => (<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />))
       }
   return (
     <div>
