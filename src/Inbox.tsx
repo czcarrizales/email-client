@@ -3,8 +3,6 @@ import Message from './Message'
 import { MessageContext } from './MessageContext'
 import { InputContext } from './InputContext'
 import CardSkeleton from './CardSkeleton'
-import { Menu, Item } from 'react-contexify'
-import ToolTip from './ToolTip'
 
 const Inbox = () => {
 

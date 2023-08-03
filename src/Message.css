@@ -1,7 +1,3 @@
-* {
-    /* border: 1px solid black; */
-}
-
 #message-container {
     background-color: #1F1D26;
     padding-top: 16px;
@@ -13,8 +9,6 @@
     cursor: pointer;
     background-color: hsl(253, 13%, 17%)
 }
-
-#message-name {}
 
 #star {
     color: #44404F;
