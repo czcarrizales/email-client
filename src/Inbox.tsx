@@ -3,6 +3,8 @@ import Message from './Message'
 import { MessageContext } from './MessageContext'
 import { InputContext } from './InputContext'
 import CardSkeleton from './CardSkeleton'
+import { Menu, Item } from 'react-contexify'
+import ToolTip from './ToolTip'
 
 const Inbox = () => {
 
@@ -35,7 +37,11 @@ const Inbox = () => {
             if(message.trash || message.spam) {
                 
             } else {
-                return (<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />)
+                return (
+                    <div>
+<Message firstName={message.name.first} lastName={message.name.last} picture={message.picture.medium} id={message.login.uuid} />
+                    </div>
+                )
             }
         } )
       }

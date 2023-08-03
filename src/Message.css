@@ -28,7 +28,6 @@
     border-radius: 5px;
 }
 
-#demo {
-    width: 50%;
-    border: 2px solid blue;
+.row .tooltip-menu {
+    max-width: 100px;
 }
