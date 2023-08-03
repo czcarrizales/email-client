@@ -3,11 +3,14 @@ import { useNavigate, useParams} from 'react-router-dom'
 import './MessageView.css'
 import { MessageContext } from './MessageContext'
 import { toast } from 'react-toastify'
+import { loremIpsum } from 'lorem-ipsum'
 const MessageView = () => {
   const navigate = useNavigate()
   const {messages, setMessages} = useContext(MessageContext)
   const {id} = useParams()
   const [user, setUser] = useState<any>(null)
+  const [messageText, setMessageText] = useState('')
+  const [subjectTitle, setSubjectTitle] = useState('')
   console.log(user)
   useEffect(() => {
     console.log('checking user')
@@ -22,9 +25,25 @@ const MessageView = () => {
       }
     }
     checkUser()
-  
-    
+    generateLoremIpsumText()
+    generateLoremIpsumSubject()
   }, [])
+
+  const generateLoremIpsumText = () => {
+    const loremText = loremIpsum({
+      count: 5,
+      units: 'paragraphs'
+    })
+    setMessageText(loremText)
+  }
+
+  const generateLoremIpsumSubject = () => {
+    const loremSubject = loremIpsum({
+      count: 2,
+      units: 'words'
+    })
+    setSubjectTitle(loremSubject)
+  }
   
   const handleClick = () => {
     navigate('/')
@@ -82,12 +101,10 @@ const MessageView = () => {
         <p id='message-view-from'>From: {user?.name.first} {user?.name.last}</p>
       </div>
       <div className="col-12">
-        <p id='message-view-subject'>Subject: I Want You To Drink My Dr. Pepper</p>
+        <p id='message-view-subject'>Subject: {subjectTitle}</p>
       </div>
       <div className="col-12">
-        <p id='message-view-text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt facere cupiditate laudantium blanditiis. Ipsa explicabo provident praesentium quae sed quod eligendi quam in cum iste, ullam sequi quidem labore. Voluptatum.
-        Cum fugiat illo dolorum minima laboriosam aspernatur tempora quas quibusdam, ratione exercitationem illum qui quidem, provident nobis eveniet non. Necessitatibus dolorum aliquam obcaecati totam iusto, ipsam quisquam vel atque iure!
-        Laudantium sed optio quia, eligendi deleniti obcaecati esse sint qui ipsum nam veniam perferendis alias eum aspernatur corporis in ad amet. Quis eveniet cupiditate odit ex officia. Veritatis, dicta esse.</p>
+        <p id='message-view-text'>{messageText}</p>
       </div>
     </div>
   )
