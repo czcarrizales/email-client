@@ -91,15 +91,15 @@ const Message = (props: any) => {
   }
   
   return (
-    <div id="message-container" className="row" onContextMenu={(e) => show({ event: e })} key={props.key}>
+    <div id="message-container" className="row d-flex align-items-center" onContextMenu={(e) => show({ event: e })} key={props.key}>
       <div id='message-profile' className="col-3 col-lg-2 d-flex align-items-center justify-content-center" onClick={goToProfile}>
         <img className='profile-picture' src={props.picture} alt="" />
       </div>
       <div className="col-6 col-lg-8" onClick={viewMessage}>
         <div className="row">
           <div id='message-name' className="col-12 col-lg-4">{props.firstName || <Skeleton />} {props.lastName}</div>
-          <div id='message-title' className="col-12 col-lg-4">Yo, Let's Hang Out!</div>
-          <div id='message-text' className="col-12 col-lg-4">This is some text that says I...</div>
+          <div id='message-title' className="col-12 col-lg-4">Subject Title</div>
+          <div id='message-text' className="col-12 col-lg-4">This is some text that says...</div>
         </div>
       </div>
       <div className="col-3 col-lg-2 d-flex align-items-center justify-content-end">
