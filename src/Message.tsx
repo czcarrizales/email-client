@@ -9,8 +9,6 @@ import Skeleton from 'react-loading-skeleton'
 import { toast } from 'react-toastify'
 import 'react-contexify/ReactContexify.css';
 import {
-  Menu,
-  Item,
   useContextMenu
 } from 'react-contexify';
 import ToolTip from './ToolTip'
